@@ -1,0 +1,83 @@
+var calculatorController = function ()
+{
+	this.calculatorElement = "";
+	this.screenElement = "";
+	this.calculatorElement = document.getElementById("calculator");
+    	var calculatorID = this.calculatorElement;
+	var result = "";
+	var btnController = new buttonsController();
+
+	calculatorID.onclick = function (event)
+	{
+	 	if (event.target.classList.contains("button")) {
+            	btnController.btnClick(event);
+        	}
+     };
+
+     this.sumOperation = function (numValue1, numValue2)
+     {
+     	result = numValue1 + numValue2;
+     	return result;
+     };
+
+     this.subtractionOperation = function (numValue1, numValue2)
+     {
+     	result = numValue1 - numValue2;
+     	return result;
+     };
+      
+     this.divisionOperation = function (numValue1, numValue2)
+     {
+     	result = numValue1 / numValue2;
+     	return result;
+     };
+
+     this.multilpicationOperation = function (numValue1, numValue2)
+     {
+     	result = numValue1 * numValue2;
+     	return result;
+     };
+
+     this.modulusOperation = function (numValue1, numValue2)
+     {
+     	result = numValue1 % numValue2;
+     	return result;
+     };
+     
+     this.clear = function (event)
+     {
+	var screenElement;        
+	if (event.target.parentNode.previousSibling.previousSibling !== null)
+        screenElement = event.target.parentNode.previousSibling.previousSibling;
+        else if (event.target.previousSibling !== null)
+        screenElement = event.target.previousSibling;
+        else if (typeof event === undefined)
+        screenElement = this.screenElement;
+
+        pcbControllerObject.screenElement.value = "";
+        pcbControllerObject.numValue1 = 0;
+        pcbControllerObject.numValue2 = 0;
+        pcbControllerObject.currentSymbol = "";
+        pcbControllerObject.isNumValue1Done = false;
+        pcbControllerObject.isNumValue2Done = false;
+    };
+ 	
+     this.inputDigits = function (event, screen)
+     {
+    	var num = 0;
+		if (typeof event === "object") {
+            num = event.target.value;
+        } else {
+            num = event;
+        }
+        if (screen.value == "" && num == "0") {
+            return;
+        } else if (this.calculationFinished == true) {
+            screen.value = num;
+            this.calculationFinished = false;
+        } else {
+            screen.value += num;
+        }
+     };
+     
+ }; 

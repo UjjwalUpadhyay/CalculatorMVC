@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title> Calculator App - Coded & Designed By Ujjwal</title>
+<link rel = "stylesheet" type= "text/css" href = "CalculatorAppStyle.css">
+</head>
+
+<body>
+<div id="calculator">
+</div>
+
+<!-- PrefixFree -->
+<script src="ButtonsView.js" type="text/javascript"></script>
+<script src="ButtonsModel.js" type="text/javascript"></script>
+<script src="ButtonsController.js" type="text/javascript"></script>
+<script src="DisplayModel.js" type="text/javascript"></script>
+<script src="DisplayView.js" type="text/javascript"></script>
+<script src="DisplayController.js" type="text/javascript"></script>
+<script src="pcbController.js" type="text/javascript"></script>
+<script src="CalculatorController.js" type="text/javascript"></script>
+<script src="CalculatorView.js" type="text/javascript"></script>
+<script src="CalculatorModel.js" type="text/javascript"></script>
+<script>
+	var calculatorObject = new calculatorController(); // Initialize calculator controller object
+	var pcbControllerObject = new pcbController(); // Initialize pcbController object
+	var calculatorCreateObject = new calculatorCreate(); // Initialize calculator view object
+	var buttonsControllerObject = new buttonsController(); // Initialize buttons controller object
+	var numericbuttonsControllerObject = new numericbuttonsController(); // Initialize buttons controller object
+	var operatorbuttonsControllerObject = new operatorbuttonsController(); // Initialize buttons controller object
+
+    var calculatorObject1 = new calculatorController();
+	var pcbControllerObject1 = new pcbController();
+	var calculatorCreateObject1 = new calculatorCreate();
+	var buttonsControllerObject1 = new buttonsController();
+    var numericbuttonsControllerObject1 = new numericbuttonsController();
+    var operatorbuttonsControllerObject1 = new operatorbuttonsController();
+          
+	//var pcbControllerObject = new pcbController (this.screenElement, inputValue);
+</script>
+</body>
+
+</html> 
+
+
+

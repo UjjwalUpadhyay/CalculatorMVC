@@ -1,0 +1,56 @@
+var display = function (height, width, material, displayDigits) {
+    this.height = height;
+    this.width = width;
+    this.material = material;
+    this.displayDigits = displayDigits;
+};
+
+buttonsController.prototype.btnClick = function(event)
+{
+        var inputValue;
+        
+	if (typeof event === "object") {
+            inputValue = event.target.value;
+            	this.screenElement = event.target.parentNode.previousSibling.childNodes[0];
+        } else {
+            inputValue = event;
+        }
+	
+	if (!isNaN (inputValue))
+        {
+	if ((this.calculationFinished === true) && (!isNaN(this.currentSymbol))) {
+		this.clear(event);
+                this.screenElement.value = inputValue;
+                this.calculationFinished = false;
+		this.isNumValue1Done = false;
+            } 
+	else if ((this.calculationFinished === true) && (isNaN(this.currentSymbol))) {
+                this.isNumValue1Done = true;
+                this.screenElement.value = this.numValue1 + inputValue;
+                this.calculationFinished = false;
+            } 
+        else if (this.currentSymbol === '') {
+                this.inputDigits(event);
+            }
+        else if (this.currentSymbol != '' && !this.isNumValue1Done) {
+                this.isNumValue1Done = true;
+                this.numValue2 = inputValue;
+                this.screenElement.value =  this.screenElement.value  + inputValue;
+            }
+        else if (this.currentSymbol != '' && this.isNumValue1Done) {
+                this.numValue2 = this.numValue2 + inputValue.toString();
+                this.screenElement.value = this.screenElement.value + inputValue;
+            }	
+
+        }
+	else
+        {
+		alert(2);
+        	/*switch (inputValue)
+		{
+			//alert(2);
+			//calculateOperator (inputValue);	
+		}*/
+	}
+         
+}
